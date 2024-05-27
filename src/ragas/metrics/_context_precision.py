@@ -36,7 +36,7 @@ _output_parser = RagasoutputParser(pydantic_object=ContextPrecisionVerification)
 
 CONTEXT_PRECISION = Prompt(
     name="context_precision",
-    instruction="""Given question, answer and context verify if the context was useful in arriving at the given answer. Give verdict as "1" if useful and "0" if not with json output.""",
+    instruction="""Given question, answer and context verify if the context was useful in arriving at the given answer. Give verdict as "1" if useful and "0" if not with json output. If the provided context is a repetition of the question or the answer, give verdict as "1".""",
     output_format_instruction=_verification_output_instructions,
     examples=[
         {
